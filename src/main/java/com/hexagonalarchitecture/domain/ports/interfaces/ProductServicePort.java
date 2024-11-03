@@ -1,11 +1,10 @@
 package com.hexagonalarchitecture.domain.ports.interfaces;
 
-import javassist.NotFoundException;
-
 import java.util.List;
 
 import com.hexagonalarchitecture.domain.dtos.ProductDTO;
 import com.hexagonalarchitecture.domain.dtos.StockDTO;
+import com.hexagonalarchitecture.domain.exceptions.ProductNotFoundException;
 
 public interface ProductServicePort {
 
@@ -13,5 +12,5 @@ public interface ProductServicePort {
 
     void createProduct(ProductDTO productDTO);
 
-    void updateStock(String sku, StockDTO stockDTO) throws NotFoundException;
+    void updateStock(String sku, StockDTO stockDTO) throws ProductNotFoundException;
 }

@@ -1,10 +1,10 @@
 package com.hexagonalarchitecture.application.adapters.controllers;
 
-import javassist.NotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import com.hexagonalarchitecture.domain.dtos.ProductDTO;
 import com.hexagonalarchitecture.domain.dtos.StockDTO;
+import com.hexagonalarchitecture.domain.exceptions.ProductNotFoundException;
 import com.hexagonalarchitecture.domain.ports.interfaces.ProductServicePort;
 
 import java.util.List;
@@ -30,7 +30,7 @@ public class ProductController {
     }
 
     @PutMapping(value = "/{sku}")
-    void updateStock(@PathVariable String sku, @RequestBody StockDTO stockDTO) throws NotFoundException {
+    void updateStock(@PathVariable String sku, @RequestBody StockDTO stockDTO) throws ProductNotFoundException {
         productServicePort.updateStock(sku, stockDTO);
     }
 }
