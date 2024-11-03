@@ -1,7 +1,5 @@
 package com.hexagonalarchitecture.domain.adapters.services;
 
-import javassist.NotFoundException;
-
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -34,7 +32,7 @@ public class ProductServiceImp implements ProductServicePort {
     }
 
     @Override
-    public void updateStock(String sku, StockDTO stockDTODTO) throws NotFoundException {
+    public void updateStock(String sku, StockDTO stockDTODTO) throws ProductNotFoundException {
         Product product = this.productRepository.findBySku(sku);
 
         if (Objects.isNull(product))
