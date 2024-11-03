@@ -44,7 +44,7 @@ public class ProductRepository implements ProductRepositoryPort {
             productEntity = new ProductEntity(product);
         else {
             productEntity = this.springProductRepository.findById(product.getId()).get();
-            productEntity.atualizar(product);
+            productEntity.update(product);
         }
 
         this.springProductRepository.save(productEntity);
